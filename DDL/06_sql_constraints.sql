@@ -1,8 +1,4 @@
-# SQL Constraints 
-/*Specific rules or limits that we define in our tables.*/
-
-
-#### DEFAULT ### 
+#### DEFAULT #### 
 /*
 CREATE TABLE table_name(
 	column_name data_type DEFAULT 'default_value',
@@ -11,18 +7,34 @@ CREATE TABLE table_name(
 );
 */
 USE sales_db;
-SELECT * FROM customers;
+DROP TABLE customers;
 
+CREATE TABLE customers(
+	customer_id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(255),
+    last_name VARCHAR(255),
+    email_address VARCHAR(255),
+    number_of_complaints INT, 
+    UNIQUE KEY(email_address),
+    PRIMARY KEY(customer_id)
+);
+
+### ADD ####
+ALTER TABLE customers
+ADD COLUMN gender ENUM("M","F");
+
+#### CHANGE ####
 ALTER TABLE customers
 CHANGE COLUMN number_of_complaints number_of_complaints INT DEFAULT 0;
 
 INSERT INTO customers(first_name,last_name,gender,email_address)
 VALUES('Jonhy','Mack','M','johny.mack@365careers.com');
 
-#### REMOVE CONSTRAINTS #### 
+SELECT * FROM customers;
 
+#### REMOVE CONSTRAINTS #### 
 ALTER TABLE customers
-ALTER COLUMN number_of_compLaints DROP DEFAULT;
+ALTER COLUMN number_of_complaints DROP DEFAULT;
 
 
 

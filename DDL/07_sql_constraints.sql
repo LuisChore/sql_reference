@@ -1,6 +1,3 @@
-# SQL Constraints 
-/*Specific rules or limits that we define in our tables.*/
-
 #### NOT NULL ####
 /*
 PRIMARY KEYS by default use this constraint 
@@ -13,26 +10,24 @@ MySQL will show an error if we try to insert a NULL VALUE
 DROP TABLE IF EXISTS companies;
 
 CREATE TABLE companies(
-	company_id INT AUTO_INCREMENT,
-    company_name VARCHAR(255) NOT NULL,
-    headquarters_phone_number VARCHAR(255),
-    PRIMARY KEY(company_id)
-   # UNIQUE KEY(head_quarters_phone_number)
+	company_id INT NOT NULL AUTO_INCREMENT,
+    headquarters_phone_number VARCHAR(255) NOT NULL,
+    company_name VARCHAR(255),
+    PRIMARY KEY(company_id) 
 );
 
 
-#### MODIFY NOT NULL CONSTRAINT ####
+#### MODIFY ####
 
 ALTER TABLE companies
 MODIFY company_name VARCHAR(255) NULL;
 
-### ADD NOT NULL CONSTRAINT ####
+#### CHANGE ####
 
 ALTER TABLE companies
-CHANGE COLUMN company_name company_name VARCHAR(255) NOT NULL;
+CHANGE company_name company_name VARCHAR(255) NOT NULL;
 
-
-## NOTE ##
+#### NOTE ####
 
 /**
 The main difference between MODIFY and CHANGE is that when using CHANGE you can also rename the column you are referring to. 
@@ -42,8 +37,7 @@ ALTER on the other hand is a keyword used to tell MySQL a change on an object wi
 mentioned constructions or something else like ADD.
 **/
 
-
-### EXCERCISE ###
+#### EXCERCISE ####
 
 ALTER TABLE companies
 CHANGE COLUMN headquarters_phone_number headquarters_phone_number VARCHAR(255) NULL;
@@ -54,7 +48,7 @@ MODIFY headquarters_phone_number VARCHAR(255) NOT NULL;
 
 
 
-## NULL VALUE VS 0 VS NONE ##
+#### NULL VALUE VS 0 VS NONE ####
 /*
 0 and NONE are values
 NULL VALUE representes a MISSING VALUE 
