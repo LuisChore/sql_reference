@@ -59,3 +59,27 @@ FROM
     employees
 WHERE
     hire_date BETWEEN '1990-01-01' AND '2000-01-01';
+    
+
+##### IS NOT NULL - IS NULL #####
+/*
+	Used to extract values that are not null 
+*/
+
+SELECT
+	*
+FROM 
+	employees
+WHERE 
+	first_name IS NULL;
+    
+    
+##### SELECT DISTINCT #####
+/*
+	Used to select all distinct, different data values 
+*/
+
+SELECT DISTINCT
+	gender
+FROM
+	employees;
